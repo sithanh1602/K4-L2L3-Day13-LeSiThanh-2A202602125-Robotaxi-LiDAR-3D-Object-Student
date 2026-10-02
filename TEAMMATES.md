@@ -6,7 +6,7 @@ Hình thức thực hiện: cá nhân (solo).
 
 Mã bài: K4-DAY13-LeSiThanh-2A202602125.
 
-Phòng/ca: chưa cung cấp.
+Ca trên portal: `k4-day13-async`. Phòng: chưa cung cấp.
 
 | Họ và tên | MSSV | Vai trò lượt A | Vai trò lượt B | Vai trò lượt C |
 | --- | --- | --- | --- | --- |

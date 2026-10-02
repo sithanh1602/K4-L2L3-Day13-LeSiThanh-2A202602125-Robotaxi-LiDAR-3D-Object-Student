@@ -2,6 +2,7 @@
 
 ## Thông tin thực hiện
 
+- Ca trên portal: `k4-day13-async`.
 - Hình thức: cá nhân (solo). Họ tên: **Lê Sĩ Thanh**. MSSV: **2A202602125**.
 - Trạng thái: đã chạy inference thật trên máy cá nhân; không dùng `provided-results`.
 - Thời gian theo log: 02/10/2026, 15:18:21–15:18:53 (UTC+7).
@@ -39,6 +40,12 @@ A chỉ có một hộp vehicles tại tâm x≈13.154 m, z≈0.330 m. Ảnh B c
 Giữ delta=1.73 m, tăng cạnh pillar từ 0.16 lên 0.32 m. Số hộp giảm từ 13 xuống 6; C chỉ có pedestrian, không còn vehicles hoặc two-wheels trong output. Trên ảnh Side, B có các hộp vehicles rộng quanh x≈41 và 56 m; C không có các hộp này. C có hộp pedestrian hẹp quanh x≈9–19 và 33.5 m.
 
 Checkpoint không được train lại cho pillar 0.32 m. Kết quả cho thấy output nhạy với biểu diễn đầu vào, nhưng chưa đủ chứng cứ để kết luận cấu hình nào tốt hơn. Không coi các hộp C là phiên bản đổi class của cùng hộp B khi chưa đối chiếu đối tượng.
+
+## Kết luận thí nghiệm
+
+Trong phạm vi mẫu và cấu hình đã chạy, output thay đổi rõ khi đổi delta hoặc pillar: A/B khác số hộp và thành phần class; B/C khác cả số hộp lẫn phân bố vị trí. Vì checkpoint, score và ROI được giữ nguyên, hai cặp so sánh cho phép quan sát tác động của từng thay đổi cấu hình. Tuy nhiên, không có reference đã duyệt để xác định accuracy hoặc chọn cấu hình tối ưu.
+
+B chỉ được dùng làm baseline tạo ca lỗi. Các ca lỗi cho thấy cần phân biệt sai lệch đồng loạt do phép chuyển tọa độ với sai lệch riêng từng hộp, trước khi chỉnh cuboid bằng tay. Kết quả này không chứng minh pipeline Robotaxi có cùng lỗi.
 
 ## Phép đổi tọa độ z
 
@@ -79,7 +86,10 @@ Tôi thực hiện bài theo hình thức solo, chạy lệnh tạo A/B/C trên 
 
 ## Trạng thái phần portal và nộp bài
 
-- Học viên cho biết đã sửa label trên portal; báo cáo này chưa kiểm chứng Save, nộp v1 hay v2.
+- Học viên cho biết đã sửa label trên portal. Ảnh portal cung cấp cho thấy ca `k4-day13-async` đã hết phiên.
+- Ba bài hiển thị trong ảnh: `1772259100-499744415` và `1772259101-299741268` ở trạng thái `ready`, có nút đối chiếu snapshot v1; `1772259101-099735260` ở trạng thái `draft`.
+- Hai trạng thái `ready` xác nhận bản v1 đã sẵn sàng cho QC, không xác nhận đã có reviewer hoặc feedback. Bài `draft` chưa nộp v1 qua portal; ảnh không xác nhận nguồn đã Save hay chưa.
+- Đây chỉ là ba bài thấy trong ảnh, không phải thống kê toàn bộ 30 job. Chưa có bằng chứng trạng thái `done` hoặc nộp v2.
 - QC chéo/QA trên portal: chưa xác nhận hoàn tất. Ba ca lỗi z không thay thế bước này.
 - Báo cáo nằm ở `PRE-LABEL-REPORT.md` tại gốc repo; output nằm trong `student-bundles/ket-qua-solo-01/` được Git ignore. Nộp báo cáo và output qua kênh private LC chỉ định.
 - LC ghi nhận: chưa xác nhận; không tự điền đã được duyệt.
